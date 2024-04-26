@@ -1,0 +1,144 @@
+<zk>
+    <borderlayout>
+        <north style="background-color:aqua" height="100px" border="none" >
+        	<div style="display:flex">            	
+            	<div style="width:20%;display:flex;justify-content:center;align-items:center"><image src="img/bank.png"/></div>
+            	<div style="width:60%;display:flex;justify-content:center;align-items:center"><label style="font-size:40px">Banking Fundas</label></div>
+            	<div style="width:20%;display:flex;justify-content:center;align-items:center"><image style="height:100%;width:80%" src="img/pennant.png"/></div>
+            </div>
+        </north>
+        <west style="background-color:yellow" width="260px" border="none" collapsible="true" splittable="true" minsize="300">
+            <div>
+            	<vbox width="100%" style="padding:5%">
+            		<button onClick="banks()" style="padding:8%;font-size:18px" width="100%">All Banks</button>
+            	</vbox>
+            	<div id="banks" style="display:none"><vbox width="100%" style="padding:5%">
+            		<button onClick="axis()" style="padding:8%;font-size:18px" width="100%" label="Axis Bank" />
+            		<button onClick="hdfc()" style="padding:8%;font-size:18px" width="100%" label="HDFC Bank" />
+            		<button style="padding:8%;font-size:18px" width="100%" label="ICICI Bank" />
+            		<button style="padding:8%;font-size:18px" width="100%" label="Union Bank" />
+            		<button style="padding:8%;font-size:18px" width="100%" label="SBI" />
+            	</vbox></div>
+            </div>
+        </west>
+        <center id="mainContent">
+        <div>
+        	<div id="axis" style="display:none"><div style="width:100%;height:100%;display:flex;align-items:center;flex-direction:column;padding:3%">
+        		<label style="font-weight:bold;font-size:40px">Axis Bank</label>
+        		<grid hflex="1" vflex="1">
+    				<columns>
+        				<column style="color:black;font-size:13px" label="Loan Type"/>
+       					<column style="color:black;font-size:13px" label="Loan Amount"/>
+       					<column style="color:black;font-size:13px" label="Interest"/>
+    				</columns>
+   					<rows>
+       					<row>
+            				<label>Home Loan</label>
+            				<label>Upto 1Cr</label>
+            				<label>6%</label>
+        				</row>
+       					<row>
+            				<label>Personal Loan</label>
+            				<label>Upto 40L</label>
+            				<label>10.75%</label>
+        				</row>
+       					<row>
+            				<label>Business Loan</label>
+            				<label>Upto 75L</label>
+            				<label>8%</label>
+        				</row>
+       					<row>
+            				<label>Car Loan</label>
+            				<label>Upto 30L</label>
+            				<label>5%</label>
+        				</row>
+       					<row>
+            				<label>Two Wheeler Loan</label>
+            				<label>Upto 2L</label>
+            				<label>9.3%</label>
+        				</row>
+       					<row>
+            				<label>Education Loan</label>
+            				<label>Upto 50L</label>
+            				<label>4%</label>
+        				</row>
+       					<row>
+            				<label>Gold Loan</label>
+            				<label>Upto 40L</label>
+            				<label>7.7%</label>
+        				</row>        				
+   					</rows>
+				</grid>
+        	</div></div>
+        	<div id="hdfc" style="display:none"><div style="width:100%;height:100%;display:flex;align-items:center;flex-direction:column;padding:3%">
+        		<label style="font-weight:bold;font-size:40px">HDFC Bank</label>
+        		<grid hflex="1" vflex="1">
+    				<columns>
+        				<column style="color:black;font-size:13px" label="Loan Type"/>
+       					<column style="color:black;font-size:13px" label="Loan Amount"/>
+       					<column style="color:black;font-size:13px" label="Interest"/>
+    				</columns>
+   					<rows>
+       					<row>
+            				<label>Home Loan</label>
+            				<label>Upto 1Cr</label>
+            				<label>6%</label>
+        				</row>
+       					<row>
+            				<label>Personal Loan</label>
+            				<label>Upto 40L</label>
+            				<label>10.75%</label>
+        				</row>
+       					<row>
+            				<label>Business Loan</label>
+            				<label>Upto 75L</label>
+            				<label>8%</label>
+        				</row>
+       					<row>
+            				<label>Car Loan</label>
+            				<label>Upto 30L</label>
+            				<label>5%</label>
+        				</row>
+       					<row>
+            				<label>Two Wheeler Loan</label>
+            				<label>Upto 2L</label>
+            				<label>9.3%</label>
+        				</row>
+       					<row>
+            				<label>Education Loan</label>
+            				<label>Upto 50L</label>
+            				<label>4%</label>
+        				</row>
+       					<row>
+            				<label>Gold Loan</label>
+            				<label>Upto 40L</label>
+            				<label>7.7%</label>
+        				</row>        				
+   					</rows>
+				</grid>
+        	</div></div>
+        	</div>
+        </center>
+        <south height="50px" border="none">
+            <label style="font-size:50px">South for footer</label>
+        </south>
+    </borderlayout>
+    <zscript>
+    	void banks(){
+    		Component target = event.getTarget().getSpaceOwner().getFellow("banks");
+    		target.setStyle("display: block");
+    	}
+    	void axis(){
+    		Component target = event.getTarget().getSpaceOwner().getFellow("axis");
+    		target.setStyle("display: block");
+    		Component target2 = event.getTarget().getSpaceOwner().getFellow("hdfc");
+    		target2.setStyle("display: none");
+    	}
+    	void hdfc(){
+    		Component target = event.getTarget().getSpaceOwner().getFellow("axis");
+    		target.setStyle("display: none");
+    		Component target2 = event.getTarget().getSpaceOwner().getFellow("hdfc");
+    		target2.setStyle("display: block");
+    	}
+    </zscript>
+</zk> 
